@@ -16,6 +16,7 @@ Auth::routes();
 
 // Home page route
 Route::get('/', 'PagesController@index');
+Route::get('/home', 'PagesController@index');
 
 // Test route
 Route::get('test', 'TestController@index');

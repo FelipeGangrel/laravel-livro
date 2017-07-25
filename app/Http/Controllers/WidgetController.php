@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Widget;
+use Redirect;
 
 class WidgetController extends Controller
 {
@@ -13,7 +15,8 @@ class WidgetController extends Controller
      */
     public function index()
     {
-        //
+        $widgets = Widget::paginate(10);
+        return view('widget.index', compact('widgets'));
     }
 
     /**
@@ -34,7 +37,20 @@ class WidgetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $this->validate($request, [
+            'name'=> 'required|unique:widgets|string|max:30'
+        ]);
+
+        $widget = Widget::create(
+            ['name' => $request->name]
+        );
+
+        $widget->save();
+
+        alert()->success('Parabéns', 'Widget criado!');
+
+        return redirect('widget');
     }
 
     /**
