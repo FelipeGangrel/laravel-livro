@@ -168,6 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,
+        Socieboy\Alerts\AlertServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e2dc7c142f8bc72a251c6323e2bf21c",
+    "content-hash": "78422122a74c1edee89064ce62c0112f",
     "packages": [
         {
             "name": "creativeorange/gravatar",
@@ -1029,6 +1029,39 @@
                 "uuid"
             ],
             "time": "2017-03-26T20:37:53+00:00"
+        },
+        {
+            "name": "socieboy/alerts",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/socieboy/alerts.git",
+                "reference": "7d4c475ba24013cf2d17f91dcb3d711211e2ec70"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/socieboy/alerts/zipball/7d4c475ba24013cf2d17f91dcb3d711211e2ec70",
+                "reference": "7d4c475ba24013cf2d17f91dcb3d711211e2ec70",
+                "shasum": ""
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Socieboy\\Alerts\\": "/src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Francisco Sepulveda",
+                    "email": "socieboy@gmail.com"
+                }
+            ],
+            "description": "Laravel Alerts with SweetAlerts",
+            "time": "2015-11-16T01:11:17+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2117,7 +2150,7 @@
             ],
             "authors": [
                 {
-                    "name": "Pádraic Brady",
+                    "name": "Padraic Brady",
                     "email": "padraic.brady@gmail.com",
                     "homepage": "http://blog.astrumfutura.com"
                 },
@@ -3405,7 +3438,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "socieboy/alerts": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

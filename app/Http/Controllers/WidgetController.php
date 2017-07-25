@@ -3,30 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Traits\Matematica;
 
-class TestController extends Controller
+class WidgetController extends Controller
 {
-    use Matematica;
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-
-        $beatles = ['John','Paul','George','Ringo'];
-
-        alert()->error('Opa', 'Mensagem aqui');
-
-        session()->flash('status', 'task was successful!');
-
-        $soma = $this->adicionar(5,1020);
-        $seno = $this->seno(90);
-
-        return view('test.index', compact('beatles','soma','seno'));
+    {
+        //
     }
 
     /**
@@ -36,7 +23,7 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+        return view('widget.create');
     }
 
     /**

@@ -11,11 +11,16 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
-
-Route::get('test', 'TestController@index');
+// Auth routes
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Home page route
+Route::get('/', 'PagesController@index');
+
+// Test route
+Route::get('test', 'TestController@index');
+
+// Widget routes
+Route::resource('widget', 'WidgetController');
 
 

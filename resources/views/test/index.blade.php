@@ -22,4 +22,11 @@
 
   @endif
 
+  @if(session()->has('status'))
+    {{ session('status') }} <br>
+  @endif
+
+  {{ $soma }}<br/>
+  {{ $seno }}
+
 @endsection
