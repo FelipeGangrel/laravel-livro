@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Traits\Matematica;
+use App\Traits\MatematicaTrait;
 
 class TestController extends Controller
 {
-    use Matematica;
+    use MatematicaTrait;
 
     /**
      * Display a listing of the resource.

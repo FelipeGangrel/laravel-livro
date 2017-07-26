@@ -23,7 +23,7 @@ class WidgetController extends Controller
      */
     public function index()
     {
-        $widgets = Widget::paginate(10);
+        $widgets = Widget::withTrashed()->paginate(10);
         return view('widget.index', compact('widgets'));
     }
 
@@ -71,7 +71,7 @@ class WidgetController extends Controller
      */
     public function show($id, $slug = '')
     {
-        $widget = Widget::findOrFail($id);
+        $widget = Widget::withTrashed()->findOrFail($id);
 
         if ($widget->slug !== $slug){
             return Redirect::route('widget.show', [
@@ -92,7 +92,9 @@ class WidgetController extends Controller
      */
     public function edit($id)
     {
-        //
+        $widget = Widget::withTrashed()->findOrFail($id);
+
+        return view('widget.edit', compact('widget'));
     }
 
     /**
@@ -104,7 +106,24 @@ class WidgetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|max:30|unique:widgets,name,'.$id
+        ]);
+
+        $widget = Widget::indOrFail($id);
+
+        $slug = str_slug($request->name, "-");
+        $widget->update([
+            'name' => $request->name,
+            'slug' => $slug,
+            'user_id' => Auth::id()
+        ]);
+
+        alert()->success('Congratulations!','You updated a widget');
+
+        return Redirect::route('widget.show', [
+            'widget' => $widget, 'slug' => $slug
+        ]);
     }
 
     /**
@@ -115,6 +134,22 @@ class WidgetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Widget::destroy($id);
+
+        alert()->overlay('Attention!', 'You deleted a widget', 'error');
+
+        return Redirect::route('widget.index');
+    }
+
+    public function restore($id)
+    {
+        $widget = Widget::onlyTrashed()->findOrFail($id);
+        $widget->restore();
+        
+        alert()->overlay('Congratulations!', 'You restored a widget', 'success');
+
+        return Redirect::route('widget.show', [
+            'widget' => $widget, 'slug' => $widget->slug
+        ]);
     }
 }

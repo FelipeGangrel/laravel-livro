@@ -30,4 +30,6 @@ Route::resource('widget', 'WidgetController',
   ['except'=> ['show', 'create']]
 );
 
+Route::post('widget/restore/{id}', 'WidgetController@restore');
+
 

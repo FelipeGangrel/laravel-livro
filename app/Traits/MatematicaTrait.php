@@ -3,7 +3,7 @@
 namespace App\Traits;
 
 
-trait Matematica 
+trait MatematicaTrait
 {
 
   public function adicionar($par1, $par2)

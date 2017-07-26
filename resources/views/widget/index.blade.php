@@ -33,7 +33,12 @@
 
                 <tr>
                     <td>{{ $widget->id }}</td>
-                    <td><a href="/widget/{{ $widget->id }}-{{ $widget->slug }}">{{ $widget->name }}</a></td>
+                    <td><a href="/widget/{{ $widget->id }}-{{ $widget->slug }}">
+                        {{ $widget->name }} 
+                        @if( $widget->trashed() )
+                        <i class="fa fa-trash text-danger"></i>
+                        @endif
+                    </a></td>
                     <td>{{ $widget->created_at }}</td>
                 </tr>
 
