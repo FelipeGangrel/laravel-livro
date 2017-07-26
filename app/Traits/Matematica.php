@@ -3,15 +3,18 @@
 namespace App\Traits;
 
 
-trait Matematica {
+trait Matematica 
+{
 
-  public function adicionar($par1, $par2){
+  public function adicionar($par1, $par2)
+  {
 
     return $par1 + $par2;
 
   }
 
-  public function seno($angulo){
+  public function seno($angulo)
+  {
 
     return sin($angulo);
 
