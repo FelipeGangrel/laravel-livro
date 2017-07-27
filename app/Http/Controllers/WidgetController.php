@@ -110,7 +110,7 @@ class WidgetController extends Controller
             'name' => 'required|string|max:30|unique:widgets,name,'.$id
         ]);
 
-        $widget = Widget::indOrFail($id);
+        $widget = Widget::findOrFail($id);
 
         $slug = str_slug($request->name, "-");
         $widget->update([
